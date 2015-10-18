@@ -4,6 +4,8 @@ DAEMON=$1
 
 if [ -e "$HDFS_FORMAT_MARKER" ]; then
     echo "Found the HDFS format marker. Formatting hdfs before starting";
+    
+    mkdir -p /data/dfs/nn
 
     /opt/hadoop/bin/hadoop --config /opt/hadoop/etc/hadoop namenode -format -force -nonInteractive
 
