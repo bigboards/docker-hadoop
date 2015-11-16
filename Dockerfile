@@ -5,7 +5,11 @@ MAINTAINER bigboards (hello@bigboards.io)
 # python
 RUN apt-get update && apt-get install -y -q \
     python \
-    python-pip
+    build-essential \ 
+    gfortran \
+    libatlas-base-dev
+    python-pip \
+    python-dev
 
 # hadoop
 RUN curl -s http://www.eu.apache.org/dist/hadoop/common/hadoop-2.6.0/hadoop-2.6.0.tar.gz | tar -xz -C /opt
