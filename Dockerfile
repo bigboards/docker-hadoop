@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y -q \
     python \
     build-essential \ 
     gfortran \
-    libatlas-base-dev
+    libatlas-base-dev \
     python-pip \
     python-dev
 
