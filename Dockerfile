@@ -28,7 +28,8 @@ ENV YARN_CONF_DIR /opt/hadoop/etc/hadoop
 # copy the format script
 ADD hdfs-namenode-wrapper.sh /opt/hadoop/bin/hdfs-namenode-wrapper.sh
 RUN chmod u+x /opt/hadoop/bin/hdfs-namenode-wrapper.sh
-
+ADD hadoop-shell /bin/hadoop-shell
+RUN chmod a+x /bin/hadoop-shell
 
 #          namenode              datanode                resourcemanager       nodemanager
 #       +--------------+ +-------------------------+ +----------------------+ +------------+
