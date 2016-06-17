@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y -q \
     python-dev
 
 # hadoop
-RUN curl -s http://www.eu.apache.org/dist/hadoop/common/hadoop-2.6.0/hadoop-2.6.4.tar.gz | tar -xz -C /opt
+RUN curl -s http://www.eu.apache.org/dist/hadoop/common/hadoop-2.6.4/hadoop-2.6.4.tar.gz | tar -xz -C /opt
 RUN cd /opt && ln -s ./hadoop-2.6.4 hadoop
 
 ENV HADOOP_PREFIX /opt/hadoop
