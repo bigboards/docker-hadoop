@@ -31,6 +31,10 @@ RUN chmod u+x /opt/hadoop/bin/hdfs-namenode-wrapper.sh
 ADD hadoop-shell /bin/hadoop-shell
 RUN chmod a+x /bin/hadoop-shell
 
+RUN apt-get update \
+    && apt-get install build-essential gfortran libatlas-base-dev python-pip python-dev pkg-config libpng-dev libjpeg8-dev libfreetype6-dev \
+    && pip install --upgrade pip numpy scipy pandas scikit-learn matplotlib
+
 #          namenode              datanode                resourcemanager       nodemanager
 #       +--------------+ +-------------------------+ +----------------------+ +------------+
 #EXPOSE 8020 50070 50470 50010 1004 50075 1006 50020 8030 8031 8032 8033 8088 8040 8041 8042
