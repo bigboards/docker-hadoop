@@ -32,8 +32,8 @@ ADD hadoop-shell /bin/hadoop-shell
 RUN chmod a+x /bin/hadoop-shell
 
 RUN apt-get update \
-    && apt-get install build-essential gfortran libatlas-base-dev python-pip python-dev pkg-config libpng-dev libjpeg8-dev libfreetype6-dev \
-    && pip install --upgrade pip numpy scipy pandas scikit-learn matplotlib
+    && apt-get install -y build-essential gfortran libatlas-base-dev python-pip python-dev pkg-config libpng-dev libjpeg8-dev libfreetype6-dev \
+    && yes | pip install --upgrade pip numpy scipy pandas scikit-learn matplotlib
 
 #          namenode              datanode                resourcemanager       nodemanager
 #       +--------------+ +-------------------------+ +----------------------+ +------------+
