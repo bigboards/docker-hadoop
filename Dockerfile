@@ -33,7 +33,7 @@ RUN chmod a+x /bin/hadoop-shell
 
 RUN apt-get update \
     && apt-get install -y build-essential gfortran libatlas-base-dev python-pip python-dev pkg-config libpng-dev libjpeg8-dev libfreetype6-dev \
-    && yes | pip install --upgrade pip numpy scipy pandas scikit-learn matplotlib
+    && yes | pip install --upgrade pip numpy scipy pandas scikit-learn matplotlib sparkts
 
 #          namenode              datanode                resourcemanager       nodemanager
 #       +--------------+ +-------------------------+ +----------------------+ +------------+
