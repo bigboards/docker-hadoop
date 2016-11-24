@@ -4,6 +4,7 @@ MAINTAINER bigboards (hello@bigboards.io)
 
 # python
 RUN apt-get update && apt-get install -y -q \
+    libxml-xpath-perl \
     python \
     build-essential \ 
     gfortran \
