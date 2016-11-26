@@ -1,9 +1,9 @@
 #!/bin/bash
 
 FILE_PREFIX="file://"
-HDFS_FORMAT_MARKER="/etc/hadoop/hdfs.format"
+HDFS_FORMAT_MARKER="/opt/hadoop/etc/hadoop/hdfs.format"
 
-HDFS_PATH_NN="$(xpath -q  -e '/configuration/property[name="dfs.namenode.name.dir"]/value/text()' '/etc/hadoop/conf/hdfs-site.xml')"
+HDFS_PATH_NN="$(xpath -q  -e '/configuration/property[name="dfs.namenode.name.dir"]/value/text()' '/opt/hadoop/etc/hadoop/hdfs-site.xml')"
 HDFS_PATH_NN="${HDFS_PATH_NN#$FILE_PREFIX}"
 
 HDFS_FORMATTED_MARKER=$HDFS_PATH_NN"/current/VERSION"
@@ -18,9 +18,9 @@ if [ -e "$HDFS_FORMAT_MARKER" ]; then
 
         mkdir -p $HDFS_PATH_NN
 
-        /opt/hadoop/bin/hdfs --config /etc/hadoop/conf namenode -format -force -nonInteractive
-	    /opt/hadoop/bin/hdfs --config /etc/hadoop/conf dfs -mkdir -p /user/root
-	    /opt/hadoop/bin/hdfs --config /etc/hadoop/conf dfs -mkdir -p /user/bb
+        /opt/hadoop/bin/hdfs --config /opt/hadoop/etc/hadoop namenode -format -force -nonInteractive
+	    /opt/hadoop/bin/hdfs --config /opt/hadoop/etc/hadoop dfs -mkdir -p /user/root
+	    /opt/hadoop/bin/hdfs --config /opt/hadoop/etc/hadoop dfs -mkdir -p /user/bb
 
         if [ $? -eq 0 ]; then
             rm -rf "$HDFS_FORMAT_MARKER"
@@ -31,5 +31,5 @@ if [ -e "$HDFS_FORMAT_MARKER" ]; then
 fi
 
 if [ ! -e "$HDFS_FORMAT_MARKER" ]; then
-    /opt/hadoop/bin/hdfs --config /etc/hadoop/conf namenode
+    /opt/hadoop/bin/hdfs --config /opt/hadoop/etc/hadoop namenode
 fi
