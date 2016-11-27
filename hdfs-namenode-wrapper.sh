@@ -19,8 +19,6 @@ if [ -e "$HDFS_FORMAT_MARKER" ]; then
         mkdir -p $HDFS_PATH_NN
 
         /opt/hadoop/bin/hdfs --config /opt/hadoop/etc/hadoop namenode -format -force -nonInteractive
-	    /opt/hadoop/bin/hdfs --config /opt/hadoop/etc/hadoop dfs -mkdir -p /user/root
-	    /opt/hadoop/bin/hdfs --config /opt/hadoop/etc/hadoop dfs -mkdir -p /user/bb
 
         if [ $? -eq 0 ]; then
             rm -rf "$HDFS_FORMAT_MARKER"
